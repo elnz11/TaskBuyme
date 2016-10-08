@@ -19,8 +19,8 @@
           <tr class="list-group">
             {{#each task in tasks}}
               <td class="list-group-item" >
-                <input type="checkbox" name="done" value="Done">
-                <strong {{bind-attr class="task.done:done"}}><span id="id">{{task.id}}</span>.{{task.name}}</strong>
+                <input type="checkbox" name="done" value="Done" {{action 'checked'}}>
+                <strong class="out"><span id="id">{{task.id}}</span>.{{task.name}}</strong>
                 <a href="#" id="del-button" {{action 'remove'}}>X</a>
               </td>
             {{/each}}
@@ -31,13 +31,13 @@
       <div id="footer">
         <tr class="alert alert-warning">
           <td class="foot">
-               :סה"כ {{total}}
+               סה"כ {{total}}
           </td>
           <td class="foot">
-               :הושלמו {{completed}}
+               הושלמו {{completed}}
           </td>
           <td class="foot">
-               :לסיום {{toComplete}}
+               לסיום {{toComplete}}
           </td>
         </tr>
       </div>

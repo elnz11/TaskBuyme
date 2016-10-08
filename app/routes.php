@@ -18,7 +18,7 @@ Route::get('/', 'BaseController@index');
 
 Route::resource('tasks', 'TasksController');
 //Route::get('/tasks', 'TasksController@index');
-Route::get('/tasks/store/{newName}' ,'TasksController@store');
+Route::post('/tasks' ,'TasksController@store');
 Route::get('/tasks/destroy/{id}' ,'TasksController@destroy');
 
 
