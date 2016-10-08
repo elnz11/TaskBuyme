@@ -2,9 +2,9 @@
 
 class TasksController extends \BaseController {
 
-	public function __construct() {
-		$this->beforeFilter('csrf', array('on' => 'post'));
-	}
+	// public function __construct() {
+	// 	$this->beforeFilter('csrf', array('on' => 'post'));
+	// }
 
 	/**
 	 * Display a listing of the resource.
@@ -22,18 +22,6 @@ class TasksController extends \BaseController {
 
 	}
 
-	// public function show()
-	// {
-	// 	$tasks = Task::all();
-	// 	Response::json(array(
-	// 			'error' => false,
-	// 			'tasks' => $tasks->toArray()),
-	// 			200
-	// 	);
-	// 	return View::make('tasks.show')->withTasks($tasks);
-	// }
-
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -50,7 +38,7 @@ class TasksController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store($name)
+	public function store()
 	{
 
 		// //validation
@@ -62,13 +50,14 @@ class TasksController extends \BaseController {
 			return Errors($validator)->withInput();
 		}
 
-	//	$name = Input::get('name');
+	  $name = Input::get('name');
 	  $task = new Task();
 		$task->name = $name;
 		$task->save();
+
 		return Response::json(array(
 				'error' => false,
-				'id' => $id),
+				'name' => $name),
 				200
 		);
 
@@ -80,9 +69,16 @@ class TasksController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function edit($id)
 	{
-		//
+		$task = Task::find($id);
+		$task->done = 1;
+
+		return Response::json(array(
+				'error' => false,
+				'name' => $name),
+				200
+		);
 	}
 
 

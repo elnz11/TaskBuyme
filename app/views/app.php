@@ -18,7 +18,7 @@
         <table class="table">
           <tr class="list-group">
             {{#each task in tasks}}
-              <td class="list-group-item" >
+              <td class="list-group-item" {{action 'check'}}>
                 <input type="checkbox" name="done" value="Done" {{action 'checked'}}>
                 <strong class="out"><span id="id">{{task.id}}</span>.{{task.name}}</strong>
                 <a href="#" id="del-button" {{action 'remove'}}>X</a>

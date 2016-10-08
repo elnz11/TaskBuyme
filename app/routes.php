@@ -18,8 +18,10 @@ Route::get('/', 'BaseController@index');
 
 Route::resource('tasks', 'TasksController');
 //Route::get('/tasks', 'TasksController@index');
-Route::post('/tasks' ,'TasksController@store');
+Route::post('/tasks', 'TasksController@store');
 Route::get('/tasks/destroy/{id}' ,'TasksController@destroy');
+Route::get('/tasks/{id}/edit' ,'TasksController@edit');
+
 
 
 ?>
