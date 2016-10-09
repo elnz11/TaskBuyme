@@ -18,9 +18,14 @@
         <table class="table">
           <tr class="list-group">
             {{#each task in tasks}}
-              <td class="list-group-item" {{action 'check'}}>
-                <input type="checkbox" name="done" value="Done" {{action 'checked'}}>
-                <strong class="out"><span id="id">{{task.id}}</span>.{{task.name}}</strong>
+              <td class="list-group-item">
+                <input type="checkbox" id="cbox" name="done" value="Done" {{action 'checked'}}>
+                <strong class="out">
+                    <label {{bind-attr class="task.done:done"}} >
+                      <span id="id">{{task.id}}</span>
+                      .{{task.name}}
+                    </label>
+                </strong>
                 <a href="#" id="del-button" {{action 'remove'}}>X</a>
               </td>
             {{/each}}

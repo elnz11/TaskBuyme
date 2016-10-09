@@ -37,11 +37,13 @@ App.TasksController = Ember.ObjectController.extend({
 
     actions: {
         check: function() {
-          console.log(event.target);
+          //var tasks = this.get('tasks');
+          return true;
         },
         remove: function() {
-          var id = $(event.target).siblings('.out').children('#id').html();
-          //console.log(id);
+
+          console.log(event.target);
+          var id = $(event.target).siblings('.out').children('label').children('#id').html();
           var request = $.getJSON('tasks/destroy/' + id , function () {
           })
           .done(function() {
@@ -49,15 +51,17 @@ App.TasksController = Ember.ObjectController.extend({
               });
         },
         checked: function() {
-          $(event.target).siblings('#del-button').prop('disabled', true);
-          var item = $(event.target).siblings('.out');
+
+          var item = $(event.target).siblings('.out').children('label');
           item.addClass("done");
           var id = item.children('#id').html();
+          //console.log(id);
+          $(this).prop('disabled', true);
 
           var request = $.getJSON('tasks/' + id + '/edit', function () {
           })
-          .done(function() {
-                //location.reload();
+          .done(function(msg) {
+                return msg;
               });
         }
       }

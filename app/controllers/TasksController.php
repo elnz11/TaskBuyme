@@ -73,10 +73,11 @@ class TasksController extends \BaseController {
 	{
 		$task = Task::find($id);
 		$task->done = 1;
+		$task->save();
 
 		return Response::json(array(
 				'error' => false,
-				'name' => $name),
+				'task' => $task),
 				200
 		);
 	}

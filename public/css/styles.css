@@ -23,7 +23,7 @@ h4 {
 
 .done {
   color: grey !important;
-  text-decoration: line-through ;;
+  text-decoration: line-through !important;
 }
 
 #footer {
